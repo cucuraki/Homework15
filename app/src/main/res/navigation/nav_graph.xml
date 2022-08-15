@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomePage">
+    <fragment
+        android:id="@+id/welcomePage"
+        android:name="com.example.homework15.pagefragments.welcomepage.WelcomePage"
+        android:label="welcome_page_fragment"
+        tools:layout="@layout/welcome_page_fragment" >
+        <action
+            android:id="@+id/action_welcomePage_to_logInFragment2"
+            app:destination="@id/logInFragment2" />
+        <action
+            android:id="@+id/action_welcomePage_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment2"
+        android:name="com.example.homework15.pagefragments.loginpage.LogInFragment"
+        android:label="log_in_fragment"
+        tools:layout="@layout/log_in_fragment" >
+        <action
+            android:id="@+id/action_logInFragment2_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.homework15.pagefragments.registerpage.RegisterFragment"
+        android:label="register_fragment"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.homework15.pagefragments.homepage.HomePageFragment"
+        android:label="home_page_fragment"
+        tools:layout="@layout/home_page_fragment" >
+        <argument
+            android:name="token"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homePageFragment_to_welcomePage"
+            app:destination="@id/welcomePage"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
